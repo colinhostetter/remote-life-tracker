@@ -21,7 +21,7 @@ To connect the phone and computer wirelessly without a cloud server, we use the 
 
 ### 2. Install this program
 
-Go to the "releases" tab on this page and download the latest version of this app for your operating system.
+Go to [this repository's releases page](https://github.com/colinhostetter/remote-life-tracker/releases) and download the latest version of this app for your operating system.
 
 Make a folder for this app somewhere on your desktop, drag the .exe in, and open it. Your operating system may give you some grief about trying to run a file you downloaded off the internet, but I promise it's not a virus. You may also see a prompt from your firewall asking whether you want this app to be able to use the network; click allow.
 
