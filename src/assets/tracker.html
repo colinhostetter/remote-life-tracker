@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Tracker</title>
+    <link rel="stylesheet" href="/static/tracker.css">
+</head>
+<body>
+    <div class="connection">
+        <div class="connection-light"></div>
+        <div class="connection-status">Connecting...</div>
+    </div>
+    <div class="tracker">
+        <div class="player player--reversed" data-player="1">
+            <button class="life-btn" data-increment="-1">
+                -
+                <div class="floating-change" data-increment="-1"></div>
+            </button>
+            <button class="life-btn" data-increment="1">
+                +
+                <div class="floating-change" data-increment="1"></div>
+            </button>
+            <div class="life-display">20</div>
+        </div>
+        <hr>
+        <div class="player" data-player="2">
+            <button class="life-btn" data-increment="-1">
+                -
+                <div class="floating-change" data-increment="-1"></div>
+            </button>
+            <button class="life-btn" data-increment="1">
+                +
+                <div class="floating-change" data-increment="1"></div>
+            </button>
+            <div class="life-display">20</div>
+        </div>
+        <button class="reset-btn">
+            <img src="/static/reset.png">
+        </button>
+    </div>
+    <script src="/static/tracker.js"></script>
+</body>
