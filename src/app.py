@@ -3,7 +3,6 @@ import json
 import logging
 import threading
 import os
-import subprocess
 import sys
 import tempfile
 import shutil
@@ -106,30 +105,10 @@ def start_websocket_server():
     asyncio.run(run_server())
 
 
-def print_tailscale_status():
-    try:
-        result = subprocess.run(["tailscale", "status", "--json"], capture_output=True, text=True, check=True)
-        data = json.loads(result.stdout)
-        if not data.get("Self").get("Online"):
-            return print("This computer is not connected to Tailscale. Make sure the Tailscale app is running and that you are signed in and connected to your Tailscale network.")
-        # Strip the trailing dot
-        dns_name = data.get("Self").get("DNSName")[:-1]
-        if not dns_name:
-            return print("Unable to retrieve DNS name from Tailscale?")
-        print("=============================================================================")
-        print("App is running. You should be able to open the life tracker on your phone at:")
-        print(f"   http://{dns_name}:5000")
-        print("If it doesn't work, make sure your phone is connected to your Tailscale network (check your phone's VPN settings).")
-        print("=============================================================================")
-    except FileNotFoundError:
-        print("Tailscale command not found. You probably need to install (or reinstall) Tailscale.")
-    except Exception as e:
-        print(f"Unexpected error occurred while retrieving Tailscale status: {e}")
-
-
 if __name__ == "__main__":
     first_time_setup()
     ws_thread = threading.Thread(target=start_websocket_server)
     ws_thread.start()
-    print_tailscale_status()
+    print("Starting server.")
+    print("You should be able to access the life tracker on your phone at: http://<device_name>.<tailscale_dns_name>.ts.net:5000")
     run_simple("0.0.0.0", 5000, app, use_reloader=False, use_debugger=False, use_evalex=False)

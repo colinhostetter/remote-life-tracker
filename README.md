@@ -25,7 +25,15 @@ Go to [this repository's releases page](https://github.com/colinhostetter/remote
 
 Make a folder for this app somewhere on your desktop, drag the .exe in, and open it. Your operating system may give you some grief about trying to run a file you downloaded off the internet, but I promise it's not a virus. You may also see a prompt from your firewall asking whether you want this app to be able to use the network; click allow.
 
-When it starts, a terminal window will appear and show you the URL for the life tracker. Go ahead and try to open that URL on your phone. There's a little connection indicator at the top of the screen that will be green and say "Connected" if everything's working.
+Once that's done, you can open the life tracker on your phone at:
+
+> http://<device>.<tailscale_dns_name>.ts.net:5000
+
+For example, my computer is named "desktop" in Tailscale and my network is named "salamander-perch", so that's:
+
+> http://desktop.salamander-perch.ts.net:5000
+
+There's a little connection indicator at the top of the screen that will be green and say "Connected" if everything's working.
 
 I'd recommend that you just add a bookmark to your phone's browser for this URL (it will be the same every time you start the app).
 
