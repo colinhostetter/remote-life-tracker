@@ -6,7 +6,7 @@ This was originally created to support streaming Pauper and Cube tournaments in 
 
 Currently this is only set up to support two-player games of Magic. Theoretically you could pretty easily adapt this to support Commander or other card games, but I haven't had any reason to do that yet.
 
-See below for instructions on using this app. It should be possible for computer-savvy but not-super-technical users to set this up on their own. If you have any questions or comments, feel free to open an issue or PR, or if you don't know what that means, feel free to just email me; my email is my first and last name at gmail.
+It should be possible for computer-savvy but not-super-technical users to set this up on their own. If you have any questions or comments, feel free to open an issue or PR, or if you don't know what that means, feel free to just email me; my email is my Github username at gmail.
 
 ## Setup Instructions
 
