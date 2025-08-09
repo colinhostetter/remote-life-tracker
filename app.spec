@@ -1,11 +1,11 @@
 # -*- mode: python ; coding: utf-8 -*-
-
+import os
 
 a = Analysis(
-    ['src\\app.py'],
+    [os.path.join('src', 'app.py')],
     pathex=[],
     binaries=[],
-    datas=[('src\\assets', 'assets'), ('obs', 'obs')],
+    datas=[(os.path.join('src', 'assets'), 'assets'), ('obs', 'obs')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
