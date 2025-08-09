@@ -27,7 +27,7 @@ Make a folder for this app somewhere on your desktop, drag the .exe in, and open
 
 Once that's done, you can open the life tracker on your phone at:
 
-> http://<device>.<tailscale_dns_name>.ts.net:5000
+> http://\<device\>.\<tailscale_dns_name\>.ts.net:5000
 
 For example, my computer is named "desktop" in Tailscale and my network is named "salamander-perch", so that's:
 
