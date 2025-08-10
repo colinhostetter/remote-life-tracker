@@ -1,5 +1,6 @@
 # -*- mode: python ; coding: utf-8 -*-
 import os
+import stat
 
 a = Analysis(
     [os.path.join('src', 'app.py')],
@@ -36,3 +37,10 @@ exe = EXE(
     codesign_identity=None,
     entitlements_file=None,
 )
+
+# Set execute permissions on the generated executable
+if hasattr(exe, 'name'):
+    exe_path = os.path.join(DISTPATH, exe.name)
+    if os.path.exists(exe_path):
+        current_permissions = os.stat(exe_path).st_mode
+        os.chmod(exe_path, current_permissions | stat.S_IEXEC | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)

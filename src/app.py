@@ -32,19 +32,31 @@ logging.getLogger('werkzeug').setLevel(logging.ERROR)
 logging.getLogger('flask').setLevel(logging.ERROR)
 app.logger.setLevel(logging.ERROR)
 
-output_folder = "output"
+def get_current_path():
+    if is_pyinstaller():
+        # Get directory of the executable
+        return os.path.dirname(sys.executable)
+    else:
+        # Get directory of the script
+        return os.path.dirname(os.path.abspath(__file__))
+
+current_path = get_current_path()
+output_folder = os.path.join(current_path, "output")
+scripts_folder = os.path.join(current_path, "scripts")
 
 
 def first_time_setup():
     if not os.path.exists(output_folder):
+        print(f'Creating output folder: {output_folder}')
         os.makedirs(output_folder)
     if is_pyinstaller():
-        if not os.path.exists('scripts'):
-            os.makedirs('scripts')
+        if not os.path.exists(scripts_folder):
+            print(f'Creating scripts folder: {scripts_folder}')
+            os.makedirs(scripts_folder)
         script_path = os.path.join(sys._MEIPASS, 'obs', 'update_life_totals.lua')
         with open(script_path) as f:
             lua_script = f.read()
-        with open("scripts/update_life_totals.lua", "w") as f:
+        with open(os.path.join(scripts_folder, "update_life_totals.lua"), "w") as f:
             f.write(lua_script)
 
     
